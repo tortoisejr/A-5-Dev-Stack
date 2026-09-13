@@ -31,9 +31,9 @@ function TechnologyCard({
       (selectedTech) => selectedTech.id === tech.id,
     );
     if (isSelected) {
-      toast.error("This Tech id already selected ");
+      toast.error(`${tech.name} is already selected `);
     } else {
-      toast.success("Tech successfully added");
+      toast.success(`${tech.name} successfully added`);
       setSelectedTechnologies([...selectedTechnologies, tech]);
     }
   };

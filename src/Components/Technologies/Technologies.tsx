@@ -1,4 +1,5 @@
 import { Suspense, use, useState } from "react";
+import { toast } from "react-toastify";
 import type { Itech } from "../../type/TechType";
 import SelectedTechnologyCard from "./SelectedTechnologyCard";
 import TechnologyCard from "./TechnologyCard";
@@ -9,6 +10,10 @@ interface Iprops {
 function Technologies({ technologiesPromise }: Iprops) {
   const [selectedTechnologies, setSelectedTechnologies] = useState<Itech[]>([]);
   const allTechnologies = use(technologiesPromise);
+  const handleAllUnselect = () => {
+    toast.warning("Remove all the selected Tech");
+    setSelectedTechnologies([]);
+  };
   return (
     <div className="container mx-auto">
       <div className="flex flex-col justify-start gap-3 mb-15">
@@ -34,9 +39,37 @@ function Technologies({ technologiesPromise }: Iprops) {
             ))}
           </div>
         </Suspense>
-        <div className=" col-span-3">
-          <SelectedTechnologyCard></SelectedTechnologyCard>
-          <SelectedTechnologyCard></SelectedTechnologyCard>
+        <div className=" border border-gray-300 rounded-lg p-4 col-span-3 h-fit">
+          <h3 className="text-2xl font-semibold">Your Stack</h3>
+          {selectedTechnologies.length > 0 ? (
+            <h5 className="text-[#87919e] text-start">
+              {selectedTechnologies.length} Technology selected
+            </h5>
+          ) : (
+            <h5 className="text-[#87919e] text-start">
+              No technologies selected yet
+            </h5>
+          )}
+          {selectedTechnologies.length <= 0 && (
+            <div className="mt-7 border border-dotted border-gray-700 rounded-lg h-35 flex justify-center items-center">
+              <p className="text-[#87919e]">Your Stack is empty</p>
+            </div>
+          )}
+          {selectedTechnologies.map((tech) => (
+            <SelectedTechnologyCard
+              technology={tech}
+              selectedTechnologies={selectedTechnologies}
+              setSelectedTechnologies={setSelectedTechnologies}
+            ></SelectedTechnologyCard>
+          ))}
+          {selectedTechnologies.length > 0 && (
+            <button
+              onClick={handleAllUnselect}
+              className="w-full py-1 border border-red-500 text-red-500 text-lg font-bold mt-10 rounded-2xl"
+            >
+              Remove All
+            </button>
+          )}
         </div>
       </div>
     </div>
