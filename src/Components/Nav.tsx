@@ -1,4 +1,4 @@
-import logo from "../../public/logo-text.png";
+import logo from "/logo-text.png";
 
 function Nav() {
   return (

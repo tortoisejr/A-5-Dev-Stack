@@ -2,6 +2,7 @@ import { Suspense, useState } from "react";
 import { ToastContainer } from "react-toastify";
 import "./App.css";
 import Banner from "./Components/Banner";
+import Footer from "./Components/Footer";
 import Nav from "./Components/Nav";
 import Technologies from "./Components/Technologies/Technologies";
 import type { Itech } from "./type/TechType";
@@ -28,6 +29,7 @@ function App() {
             technologiesPromise={technologiesPromise}
           ></Technologies>
         </Suspense>
+        <Footer></Footer>
       </div>
     </>
   );
