@@ -57,6 +57,7 @@ function Technologies({ technologiesPromise }: Iprops) {
           )}
           {selectedTechnologies.map((tech) => (
             <SelectedTechnologyCard
+              key={tech.id}
               technology={tech}
               selectedTechnologies={selectedTechnologies}
               setSelectedTechnologies={setSelectedTechnologies}
