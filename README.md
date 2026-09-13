@@ -1,35 +1,32 @@
-# React + TypeScript + Vite
+Project Name: Dev-Stack
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Description: This project all about make software according to users favorite Technologies, to build a project user can select their Stack from the Stack list and can build their project later.
 
-Currently, two official plugins are available:
+Technologies: The technologies that are used to build the project are vite,TypeScritp,React,tsx along with that a npm package is also used that is toastyfi. 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Features:
+- user can select their stack to build project.
+- If select unnecessary stack they can remove it later.
+- If in the middle user change his mind he can remove all the stack by one click on button and again begin a fresh start.
 
-## React Compiler
+  Quesitons:
+  1. what is jxs and why is it used in react
+     JSX stands for JavaScript XML. It is use for to write how component will look like. In react there is require a scripting language to           write how component will look like and since read ability of  JSX  it become that scripting language for react.
+  2. what is the difference between props and state?
+     props are like argument that we can send to the component at the of calling it but state is the variable that work inside the component         function and store the value.
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+  3.What dose the use useState hook do and where did you use it in this project?
+    useState hook get use to store a data and also it provide a function to set the data. After update the value each time the component that       is use the state value component render again. I use useState to save the selected Technologies and show it is selected Tech area.
+  
+  4.What does the useEffect hook do, and why did you need it to load the JSON data?
+    useEffect is the hook that take a callback function and a dependency array. when the component first time rendered then this callback           function execute. After the first execution the callback only execute again when value of index of dependency array will change. Since          there is no need to fetch data again and again rather it decrease the performance so to fetch data according to our necessary we use             useEffect.
 
-Note: This will impact Vite dev & build performances.
-You can also try [the experimental native React Compiler support in plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md#rust-react-compiler) by using `compiler: true` in the plugin options instead of using the Babel plugin.
+   5.Why does every item in a .map() list need a unique key prop?
+      In virtual dom react create a tree and calculate rendering change according to change in virtual dom.The process of identify the change          in virtual dom make quick key props when map is used.That's why unique key props is importent for map().
 
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
-```
-
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+   6.What is conditional rendering? Show one place you used it (example: the empty stack message).
+      Conditional rendering provide the ability to render different things in the same space for different condition. Here in this project if         there at least one selected technologies at "Your Stack" section I render a "Remove All" button other wise it is not exist.
+  
+    7.How do you pass data from a parent component to a child component, and how does a child send something back to the parent?
+     From a parent data pass to the child as props but there is no way to send back data to parent from child but if it is necessary then it is      possible to solve the problem by using "lifting state up" technique with help of useState. 
+    
