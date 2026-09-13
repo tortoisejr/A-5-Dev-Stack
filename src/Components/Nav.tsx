@@ -2,7 +2,7 @@ import logo from "/logo-text.png";
 
 function Nav() {
   return (
-    <div className="container mx-auto flex flex-row justify-between mt-4">
+    <div className="container mx-auto flex flex-row justify-between  sticky top-0 z-50 bg-white py-5">
       <img src={logo} alt="logo-Picture" />
       <ul className="flex flex-row justify-between items-center text-[#87919e] text-sm gap-7">
         <li className=" cursor-pointer text-[#d91b7e]">Home</li>
